@@ -5,7 +5,8 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; 
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -24,9 +25,13 @@ const pool = new Pool({
   });
 
 // Test de connexion à PostgreSQL
-pool.connect()
-  .then(() => console.log('Connected to PostgreSQL'))
-  .catch((err) => console.error('Connection error', err.stack));
+pool.connect((err, client, release) => {
+    if (err) {
+      console.error('Error connecting to the database', err.stack);
+    } else {
+      console.log('Connected to the database');
+    }
+  });
 
 // Routes
 app.get('/', (req, res) => {
@@ -35,13 +40,14 @@ app.get('/', (req, res) => {
 
 // API pour les abonnés
 app.get('/subscribers', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM subscribers');
-    res.json(result.rows);
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-});
+    try {
+      const result = await pool.query('SELECT * FROM subscribers');
+      res.status(200).json(result.rows);
+    } catch (error) {
+      console.error('Error fetching subscribers:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 
 // API pour les enfants d’un abonné
 app.get('/subscribers/:subscriberId/children', async (req, res) => {
