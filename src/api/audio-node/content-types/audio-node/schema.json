@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "audio_nodes",
+  "info": {
+    "singularName": "audio-node",
+    "pluralName": "audio-nodes",
+    "displayName": "AudioNode"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "numero": {
+      "type": "integer"
+    },
+    "transcription": {
+      "type": "blocks",
+      "required": false
+    },
+    "audio": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isEnd": {
+      "type": "boolean"
+    },
+    "text_choice_1": {
+      "type": "string"
+    },
+    "next_node_1": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::audio-node.audio-node"
+    },
+    "text_choice_2": {
+      "type": "string"
+    },
+    "next_node_2": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::audio-node.audio-node"
+    },
+    "text_choice_3": {
+      "type": "string"
+    },
+    "next_node_3": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::audio-node.audio-node"
+    },
+    "text_choice_4": {
+      "type": "string"
+    },
+    "next_node_4": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::audio-node.audio-node"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "podcast_progresses",
+  "info": {
+    "singularName": "podcast-progress",
+    "pluralName": "podcast-progresses",
+    "displayName": "PodcastProgress"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "podcast": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::podcast.podcast"
+    },
+    "isFinished": {
+      "type": "boolean"
+    },
+    "scoring": {
+      "type": "integer"
+    }
+  }
+}
