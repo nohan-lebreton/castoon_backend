@@ -66,14 +66,16 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "pin": {
-      "type": "password"
-    },
     "children": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::child.child",
       "mappedBy": "users"
+    },
+    "pin": {
+      "type": "biginteger",
+      "default": "0000",
+      "max": "9999"
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2025-06-17T10:32:37.282Z"
+    "x-generation-date": "2025-06-18T22:50:24.626Z"
   },
   "x-strapi-config": {
     "plugins": [
@@ -8193,6 +8193,11 @@
                                   }
                                 }
                               },
+                              "pin": {
+                                "type": "string",
+                                "pattern": "^\\d*$",
+                                "example": "123456789"
+                              },
                               "createdAt": {
                                 "type": "string",
                                 "format": "date-time"
@@ -11088,6 +11093,11 @@
                     }
                   }
                 },
+                "pin": {
+                  "type": "string",
+                  "pattern": "^\\d*$",
+                  "example": "123456789"
+                },
                 "createdAt": {
                   "type": "string",
                   "format": "date-time"
@@ -12896,6 +12906,11 @@
                               }
                             }
                           },
+                          "pin": {
+                            "type": "string",
+                            "pattern": "^\\d*$",
+                            "example": "123456789"
+                          },
                           "createdAt": {
                             "type": "string",
                             "format": "date-time"
@@ -14525,6 +14540,11 @@
                                     }
                                   }
                                 }
+                              },
+                              "pin": {
+                                "type": "string",
+                                "pattern": "^\\d*$",
+                                "example": "123456789"
                               },
                               "createdAt": {
                                 "type": "string",
@@ -16707,6 +16727,11 @@
                                       }
                                     }
                                   }
+                                },
+                                "pin": {
+                                  "type": "string",
+                                  "pattern": "^\\d*$",
+                                  "example": "123456789"
                                 },
                                 "createdAt": {
                                   "type": "string",
