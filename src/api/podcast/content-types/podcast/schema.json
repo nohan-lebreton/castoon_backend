@@ -32,10 +32,10 @@
       "target": "api::topic.topic",
       "inversedBy": "podcasts"
     },
-    "chapters": {
+    "audio_nodes": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::chapter.chapter",
+      "target": "api::audio-node.audio-node",
       "mappedBy": "podcast"
     }
   }

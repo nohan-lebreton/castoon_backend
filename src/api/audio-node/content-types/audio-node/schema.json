@@ -63,6 +63,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::audio-node.audio-node"
+    },
+    "podcast": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::podcast.podcast",
+      "inversedBy": "audio_nodes"
     }
   }
 }

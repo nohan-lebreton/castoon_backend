@@ -413,6 +413,7 @@ export interface ApiAudioNodeAudioNode extends Struct.CollectionTypeSchema {
       'api::audio-node.audio-node'
     >;
     numero: Schema.Attribute.Integer;
+    podcast: Schema.Attribute.Relation<'manyToOne', 'api::podcast.podcast'>;
     publishedAt: Schema.Attribute.DateTime;
     text_choice_1: Schema.Attribute.String;
     text_choice_2: Schema.Attribute.String;
@@ -449,39 +450,6 @@ export interface ApiAvatarAvatar extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiChapterChapter extends Struct.CollectionTypeSchema {
-  collectionName: 'chapters';
-  info: {
-    displayName: 'Chapter';
-    pluralName: 'chapters';
-    singularName: 'chapter';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    audio_nodes: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::audio-node.audio-node'
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::chapter.chapter'
-    > &
-      Schema.Attribute.Private;
-    podcast: Schema.Attribute.Relation<'manyToOne', 'api::podcast.podcast'>;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -571,7 +539,10 @@ export interface ApiPodcastPodcast extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    chapters: Schema.Attribute.Relation<'oneToMany', 'api::chapter.chapter'>;
+    audio_nodes: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::audio-node.audio-node'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1143,7 +1114,6 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::audio-node.audio-node': ApiAudioNodeAudioNode;
       'api::avatar.avatar': ApiAvatarAvatar;
-      'api::chapter.chapter': ApiChapterChapter;
       'api::child.child': ApiChildChild;
       'api::podcast-progress.podcast-progress': ApiPodcastProgressPodcastProgress;
       'api::podcast.podcast': ApiPodcastPodcast;
