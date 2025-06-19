@@ -415,6 +415,7 @@ export interface ApiAudioNodeAudioNode extends Struct.CollectionTypeSchema {
     numero: Schema.Attribute.Integer;
     podcast: Schema.Attribute.Relation<'manyToOne', 'api::podcast.podcast'>;
     publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String;
     text_choice_1: Schema.Attribute.String;
     text_choice_2: Schema.Attribute.String;
     text_choice_3: Schema.Attribute.String;
