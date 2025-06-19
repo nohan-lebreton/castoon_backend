@@ -1075,14 +1075,6 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
-    pin: Schema.Attribute.BigInteger &
-      Schema.Attribute.SetMinMax<
-        {
-          max: '9999';
-        },
-        string
-      > &
-      Schema.Attribute.DefaultTo<'0000'>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
