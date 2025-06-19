@@ -71,6 +71,9 @@
       "relation": "manyToMany",
       "target": "api::child.child",
       "mappedBy": "users"
+    },
+    "pin": {
+      "type": "integer"
     }
   }
 }
